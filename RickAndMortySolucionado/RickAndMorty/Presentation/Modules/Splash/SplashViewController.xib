@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SplashViewController" customModule="RickAndMortyAcademy2024" customModuleProvider="target">
+            <connections>
+                <outlet property="splashOpeningLabel" destination="PSw-US-0b2" id="k5e-gA-gvN"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_splash" translatesAutoresizingMaskIntoConstraints="NO" id="ZlF-w9-Rsp">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="...comprobando la conexión..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSw-US-0b2">
+                    <rect key="frame" x="16" y="640" width="361" height="61"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="361" id="i39-Mj-AXv"/>
+                        <constraint firstAttribute="height" constant="61" id="jla-5C-pAL"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="labelColor"/>
+            <constraints>
+                <constraint firstItem="PSw-US-0b2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="581" id="56L-9z-hSS"/>
+                <constraint firstAttribute="bottom" secondItem="ZlF-w9-Rsp" secondAttribute="bottom" id="9Zu-as-kGd"/>
+                <constraint firstItem="ZlF-w9-Rsp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="TEl-5z-Pbb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PSw-US-0b2" secondAttribute="trailing" constant="16" id="Xro-kl-gxV"/>
+                <constraint firstItem="PSw-US-0b2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Zcj-AH-p3r"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="PSw-US-0b2" secondAttribute="bottom" constant="117" id="beg-si-2FO"/>
+                <constraint firstItem="ZlF-w9-Rsp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="if3-Yc-EfW"/>
+                <constraint firstItem="ZlF-w9-Rsp" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="j2J-ve-Kpn"/>
+            </constraints>
+            <point key="canvasLocation" x="617.55725190839689" y="0.0"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="image_splash" width="390" height="657"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
