@@ -8,5 +8,5 @@
 import Foundation
 
 protocol CharactersUseCaseProtocol {
-    func getCharacters(page: Int) async throws -> [Character]
+    func getPaginatedCharacters(page: Int) async throws -> PaginatedCharacters
 }

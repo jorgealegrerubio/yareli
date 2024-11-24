@@ -14,9 +14,9 @@ class CharacterRepository: CharacterRepositoryProtocol {
         self.remoteDataSource = remoteDataSource
     }
     
-    func getCharacters(page: Int) async throws -> [Character] {
-        let charactersDTO = try await remoteDataSource.getCharacters(page: page)
-        return charactersDTO.map { $0.toDomain() }
+    func getPaginatedCharacters(page: Int) async throws -> PaginatedCharacters {
+        let paginatedCharactersDTO = try await remoteDataSource.getPaginatedCharacters(page: page)
+        return paginatedCharactersDTO.toDomain()
     }
 }
 
@@ -29,5 +29,17 @@ fileprivate extension CharacterDTO {
 fileprivate extension OriginDTO {
     func toDomain() -> Origin {
         Origin(name: self.name)
+    }
+}
+
+fileprivate extension PaginatedCharactersDTO {
+    func toDomain() -> PaginatedCharacters {
+        PaginatedCharacters(characters: self.results.map { $0.toDomain() }, info: self.info.toDomain() )
+    }
+}
+
+fileprivate extension InfoDTO {
+    func toDomain() -> Info {
+        Info(next: self.next)
     }
 }

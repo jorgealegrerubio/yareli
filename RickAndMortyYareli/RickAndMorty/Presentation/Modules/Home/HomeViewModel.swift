@@ -11,8 +11,9 @@ final class HomeViewModel {
     let router: HomeRouter
     let characterUseCase: CharactersUseCaseProtocol
     var characters: [Character] = []
-    var nextPageUrl: String? = "https://rickandmortyapi.com/api/character"
     var charactersUpDate: (() -> Void)?
+    var currentPage = 1
+    var nextPage: String?
     
     
     init(router: HomeRouter, characterUseCase: CharactersUseCaseProtocol) {
@@ -24,8 +25,30 @@ final class HomeViewModel {
     func getCharacters() {
         Task {
             do {
-                characters = try await characterUseCase.getCharacters(page: 1)
-                print(characters)
+              let paginatedCharacters = try await characterUseCase.getPaginatedCharacters(page: currentPage)
+                characters = paginatedCharacters.characters
+                nextPage = paginatedCharacters.info.next
+                
+                charactersUpDate?()
+            } catch {
+                print("Error")
+                //TODO
+            }
+        }
+    }
+    
+    func addCharacters() {
+        guard let page = nextPage else {
+            return
+        }
+        
+        currentPage += 1
+        Task {
+            do {
+              let paginatedCharacters = try await characterUseCase.getPaginatedCharacters(page: currentPage)
+                characters.append(contentsOf: paginatedCharacters.characters)
+                nextPage = paginatedCharacters.info.next
+                
                 charactersUpDate?()
             } catch {
                 print("Error")

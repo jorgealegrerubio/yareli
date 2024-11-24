@@ -8,12 +8,12 @@
 import Foundation
 
 class RemoteCharactersDataSources: RemoteCharactersDataSourceProtocol {
-    func getCharacters(page: Int) async throws -> [CharacterDTO] {
-        guard let url = URL(string: "https://rickandmortyapi.com/api/character?page=\(page)") else { return [] }
+    func getPaginatedCharacters(page: Int) async throws -> PaginatedCharactersDTO {
+        guard let url = URL(string: "https://rickandmortyapi.com/api/character?page=\(page)") else { return PaginatedCharactersDTO(results: [], info: InfoDTO(next: nil)) }
                 let request = URLRequest(url: url)
                 let (data, _) = try await URLSession.shared.data(for: request)
                 let decodeCharacters = try JSONDecoder().decode(PaginatedCharactersDTO.self, from: data)
-                return decodeCharacters.results
+                return decodeCharacters
     }
     
     

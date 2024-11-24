@@ -14,7 +14,7 @@ class CharactersUseCase: CharactersUseCaseProtocol {
         self.repository = repository
     }
     
-    func getCharacters(page: Int) async throws -> [Character] {
-        try await repository.getCharacters(page: page)
+    func getPaginatedCharacters(page: Int) async throws -> PaginatedCharacters {
+        try await repository.getPaginatedCharacters(page: page)
     }
 }

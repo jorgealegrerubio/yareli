@@ -9,5 +9,9 @@ import Foundation
 
 struct PaginatedCharactersDTO: Codable {
     let results: [CharacterDTO]
+    let info: InfoDTO
 }
 
+struct InfoDTO: Codable {
+    let next: String?
+}

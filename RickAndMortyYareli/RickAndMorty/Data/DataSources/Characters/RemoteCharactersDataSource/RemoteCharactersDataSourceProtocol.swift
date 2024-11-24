@@ -8,5 +8,5 @@
 import Foundation
 
 protocol RemoteCharactersDataSourceProtocol {
-    func getCharacters(page: Int) async throws -> [CharacterDTO]
+    func getPaginatedCharacters(page: Int) async throws -> PaginatedCharactersDTO
 }

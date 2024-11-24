@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Character: Codable {
+struct Character {
     let id: Int
     let name: String
     let image: String
@@ -15,16 +15,6 @@ struct Character: Codable {
 
 }
 
-struct Origin: Codable{
+struct Origin {
     let name: String
-}
-
-struct Results: Codable {
-    let results: [Character]
-}
-
-struct Info: Codable {
-    let count: Int
-    let pages: Int
-    let next: String?
 }
